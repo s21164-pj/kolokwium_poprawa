@@ -12,8 +12,12 @@ public class Main {
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         Validator validator = factory.getValidator();
 
-        Product bulka = new Product(1, 2, "bulka");
+        Product bulka = new Product("1", 2, "bulka");
         Shop shop = new Shop(1, "SklepOli");
+        Customer customer = new Customer("1");
+
+        customer.addProduct(bulka);
+        shop.addProduct(bulka);
 
 
 

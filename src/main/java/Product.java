@@ -3,24 +3,24 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 public class Product {
-    private int productId;
+    private String productId;
 
     @NotNull(message = "Price cannot be null")
     private int price;
 
     private String name;
 
-    public Product(int productId, @NotNull(message = "Price cannot be null") int price, @Size(min = 6, message = "Min 6 letters") @Pattern(regexp = "[a-zA-Z]+", message = "only letters") String name) {
+    public Product(String productId, @NotNull(message = "Price cannot be null") int price, @Size(min = 6, message = "Min 6 letters") @Pattern(regexp = "[a-zA-Z]+", message = "only letters") String name) {
         this.productId = productId;
         this.price = price;
         this.name = name;
     }
 
-    public int getProductId() {
+    public String getProductId() {
         return productId;
     }
 
-    public void setProductId(int productId) {
+    public void setProductId(String productId) {
         this.productId = productId;
     }
 

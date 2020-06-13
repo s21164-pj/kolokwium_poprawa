@@ -2,18 +2,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Customer {
-   private int customerId;
+   private String customerId;
    List<Product> purchasedProducts = new ArrayList<>();
 
-    public Customer(int customerId) {
+    public Customer(String customerId) {
         this.customerId = customerId;
     }
 
-    public int getCustomerId() {
+    public String getCustomerId() {
         return customerId;
     }
 
-    public void setCustomerId(int customerId) {
+    public void setCustomerId(String customerId) {
         this.customerId = customerId;
     }
 
@@ -23,5 +23,9 @@ public class Customer {
 
     public void setPurchasedProducts(List<Product> purchasedProducts) {
         this.purchasedProducts = purchasedProducts;
+    }
+
+    public  void addProduct(Product product) {
+        this.purchasedProducts.add(product);
     }
 }
