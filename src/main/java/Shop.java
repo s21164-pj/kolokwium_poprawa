@@ -1,17 +1,22 @@
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Shop {
     private int shopId;
+
+    @Size(min = 6, message = "Min 6 letters")
+    @Pattern(regexp = "[a-zA-Z]+", message = "only letters")
     private String shopName;
 
     List<Product> ownedProduct = new ArrayList<>();
     List<Product> soldProducts = new ArrayList<>();
 
-    public Shop(int shopId, String shopName, List<Product> ownedProduct) {
+
+    public Shop(int shopId, @Size(min = 6, message = "Min 6 letters") @Pattern(regexp = "[a-zA-Z]+", message = "only letters") String shopName) {
         this.shopId = shopId;
         this.shopName = shopName;
-        this.ownedProduct = ownedProduct;
     }
 
     public int getShopId() {
@@ -45,4 +50,9 @@ public class Shop {
     public void setSoldProducts(List<Product> soldProducts) {
         this.soldProducts = soldProducts;
     }
+
+    public  void addProduct(Product product) {
+        this.ownedProduct.add(product);
+    }
+
 }
